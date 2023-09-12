@@ -7,6 +7,6 @@ $request = $_SERVER['REQUEST_URI'];
 
 
 $template = new Template();
-$template-> header();
-(new Router())->rum($request);
+$template->header();
+(new Router())->run($request);
 $template->footer();

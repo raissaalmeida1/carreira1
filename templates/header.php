@@ -3,21 +3,22 @@
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <header>
 
+
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="static/imagens/logo.png" alt="logo" width="60" height="60"
+                <img src="static/imagens/logo.png" alt="Logo" width="60" height="60"
                     class="d-inline-block align-text-top">
-                CarreiraEtec
+                    CarreiraETEC
             </a>
 
-
-            <ul class="navbar-nav mb-2 mb-lg-0">
+            <ul class="navbar-nav mb-2 mb-lg-0 ">
                 <li class="nav-item">
                     <a class="nav-link" href="empresa">Empresas</a>
                 </li>
             </ul>
         </div>
     </nav>
+
 
 </header>
