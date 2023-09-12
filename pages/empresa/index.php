@@ -26,11 +26,11 @@
           </thead>  
           <tbody>
             <?php
-              foreach($empresas as $empresa) {
+              foreach($lista as $empresa) {
             ?>
              <tr>
-                <td><a href="#">ETEC Pedro Badran</a></td>
-                <td >(16)3818-2196</td>
+                <td><a href="#"><?=$empresa->getNome()?></a></td>
+                <td ><?=$empresa->getTelefone()?></td>
              </tr>
 
             <?php
