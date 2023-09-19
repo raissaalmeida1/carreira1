@@ -8,7 +8,7 @@ class Router extends RouterSwitch
     public function run(string $requestUri)
     {
         $route = substr($requestUri, 1);
-        $route = str_replace("carreira/", "", $route);
+        $route = str_replace("carreira1/", "", $route);
 
         if ($route == '') {
             $this->home();

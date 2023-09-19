@@ -1,11 +1,11 @@
 <?php
-  require_once 'empresa_controller.php';
+require_once 'empresa_controller.php';
 
-  //cria um controlador
-  $controlador = new EmpresaController(); 
+//cria um controlador
+$controlador = new EmpresaController();
 
-  //obtem a lista de empresas do banco de dados.
-  $lista = $controlador->listar();
+//obtem a lista de empresas do banco de dados.
+$lista = $controlador->listar();
 
 ?>
 <nav class="navbar sticky-top bg-body-tertiary">
@@ -14,30 +14,31 @@
   </div>
 </nav>
 
-
-
 <div class="container-fluid">
-    <table class="table"> 
-          <thead> 
-               <tr>
-                 <th scope="col">Nome da Empresa</th>
-                 <th scope="col">Telefone</th>
-               </tr> 
-          </thead>  
-          <tbody>
-            <?php
-              foreach($lista as $empresa) {
-            ?>
-             <tr>
-                <td><a href="#"><?=$empresa->getNome()?></a></td>
-                <td ><?=$empresa->getTelefone()?></td>
-             </tr>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nome da Empresa</th>
+        <th scope="col">Telefone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+      foreach ($lista as $empresa) {
+        ?>
+        <tr>
+          <td><a href="#"><?= $empresa->getNome() ?></a></td>
+          <td><?= $empresa->getTelefone() ?></td>
+        </tr>
 
-            <?php
-              }
-            ?>
+        <?php
+      }
+      ?>
+    </tbody>
+  </table>
 
 
-          </tbody>  
-    </table>    
-</div>    
+  <div id="div-add">
+     <i class="fa fa-plus-square" aria-hidden="true"></i>
+  </div>
+</div>
