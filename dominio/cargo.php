@@ -11,6 +11,7 @@ class Cargo {
 		return $this->id;
 	}
 	
+	
 	/**
 	 * @param mixed $id 
 	 * @return self
