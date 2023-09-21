@@ -20,6 +20,7 @@
     }
     protected function empresa()
     {
+        
         require __DIR__ . '/pages/empresa/index.php';
     }
     protected function recrutador()
