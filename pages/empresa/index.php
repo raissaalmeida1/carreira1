@@ -7,6 +7,7 @@ $controlador = new EmpresaController();
 //obtem a lista de empresas do banco de dados.
 $lista = $controlador->listar();
 
+
 ?>
 <nav class="navbar sticky-top bg-body-tertiary">
   <div class="container-fluid">

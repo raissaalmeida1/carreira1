@@ -1,12 +1,18 @@
 <?php
   require_once 'dominio/empresa.php';
  class EmpresaController {
+
+function novo(){
+   
+}
+
+
+
      function incluir(Empresa $empresa){
 
      }
      function listar(){
         $empresas = [];
-
         $empresa = new Empresa();
         $empresa->setId(1);
         $empresa->setNome("ETEC PEDRO BADRAN");
