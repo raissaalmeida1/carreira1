@@ -33,13 +33,15 @@
     function obterCoordenadasGoogleMaps() {
         const inputEndereco = document.getElementById("endereco");
         const endereco = inputEndereco.value;
-        const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(endereco)}`;
+        const apiUrl = "https://nominatim.openstreetmap.org/search?q="+endereco+"&format=json";
 
         fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
-                if (data.status === 'OK') {
-                    const coordenadas = data.results[0].geometry.location;
+
+                if (data!=null && data.length>0) {
+
+                    const coordenadas = data[0];
                     console.log(`Latitude: ${coordenadas.lat}, Longitude: ${coordenadas.lng}`);
                     map.flyTo([coordenadas.lat, coordenadas.lon], 12);
                     L.marker([coordenadas.lat, coordenadas.lon]).addTo(map)
