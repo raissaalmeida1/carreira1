@@ -1,27 +1,52 @@
 <div class="container">
  
-    <form>
-        <div class="mb-3 input-group">
+    <form method="POST" id="formulario"> 
+        <div class="mb-3 input-group has-validation">
           <span class="input-group-text">Nome</span>
           <!--Incluir Atributo "name" nos inputs que vão ser enviados para salvar no banco de dados -->        
           <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome da empresa">
+          
+          <div class="invalid-feedback">
+            Por Favor digite o nome da empresa
+        </div>
+
+        
         </div>
        
-       
+
+
+        <div class="mb-3 input-group has-validation ">
+          <span class="input-group-text">Telefone</span>
+          <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="Digite o telefone da empresa">
+
+          <div class="invalid-feedback">
+            Por favor digite um telefone
+        </div>
+
+        </div>
+
+
+
+
         <div class="mb-3 input-group">
         <span class="input-group-text">Estado</span>
         <select class="form-select" aria-label="Default select example" id="estados" onchange="carregarCidadesIBGE()">
             <option selected>Selecione um estado</option>
         </select>
+        <div class="invalid-feedback">
+            Por favor selecione um Estado
+</div>
         </div>            
  
         <div class="mb-3 input-group">
         <span class="input-group-text">Cidade</span>
         <select class="form-select" aria-label="Default select example" id="cidade" name="cidade">
-            <option selected>Selecione uma cidade</option>
+            <option selected>Selecione antes um estado</option>
         </select>
+        <div class="invalid-feedback">
+            Por favor selecione uma cidade
         </div>            
- 
+</div>
  
  
         <div class="mb-3 input-group">
@@ -32,6 +57,9 @@
             <span class="input-group-text">Endereço</span>
             <input type="text" class="form-control" id="endereco" placeholder="Digite o endereço da empresa">
             <button type="button"  onclick="obterCoordenadasGoogleMaps()" class="input-group-text">Localizar</button>
+            <div class="invalid-feedback">
+            Por favor localize a empresa no mapa.
+</div>
         </div>
         <?php require 'pages/empresa/mapa.php'; ?>
  
@@ -101,4 +129,41 @@
                     console.log("Erro carregando cidades "+error);
                 });;
      }
+
+
+    function validacao(e){
+        let passou = true;
+        let enome =document.getElementById("nome");
+        if (enome.value==null || enome.value == ""){
+            passou = false;
+            enome.classList.add("is-invalid");
+        } else {
+            enome.classList.remove("is-invalid");
+        }
+
+        let etefefone =document.getElementById("telefone");
+        if (etelefone.value==null || etefefone.value.length >=9){
+            passou = false;
+            etelefone.classList.add("is-invalid");
+        } else {
+            etefefone.classList.remove("is-invalid");
+        }
+
+        let ecidade =document.getElementById("cidade");
+        if (ecidade.value==null || ecidade.value.length >=9){
+            passou = false;
+            ecidade.classList.add("is-invalid");
+        } else {
+            ecidade.classList.remove("is-invalid");
+        }
+
+
+       if (!passou){
+      form.preventDefault();
+     }
+
+    }
+
+    document.getElementById("formulario").addEventListener('submit',validacao);
+
 </script>    
