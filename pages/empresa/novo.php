@@ -30,7 +30,8 @@
 
         <div class="mb-3 input-group">
         <span class="input-group-text">Estado</span>
-        <select class="form-select" aria-label="Default select example" id="estados" onchange="carregarCidadesIBGE()">
+        <select class="form-select" aria-label="Default select example" id="estados"
+         onchange="carregarCidadesIBGE()">
             <option selected>Selecione um estado</option>
         </select>
         <div class="invalid-feedback">
@@ -47,11 +48,8 @@
             Por favor selecione uma cidade
         </div>            
 </div>
- 
- 
+
         <div class="mb-3 input-group">
-           
-            <!--Incluir os inputs que serão utilizados para enviar a geolocalização  -->        
             <input type="hidden" id="geolocalizacao" name="geolocalizacao">
  
             <span class="input-group-text">Endereço</span>
@@ -63,7 +61,6 @@
         </div>
         <?php require 'pages/empresa/mapa.php'; ?>
  
-        <!--botão para salvar o formulário -->        
         <div class="mb-3 input-group  justify-content-end ">
            <button type="submit"  class="input-group-text ">Salvar</button>
         </div>            
@@ -142,7 +139,7 @@
         }
 
         let etefefone =document.getElementById("telefone");
-        if (etelefone.value==null || etefefone.value.length >=9){
+        if (etelefone.value==null || etefefone.value.length <9){
             passou = false;
             etelefone.classList.add("is-invalid");
         } else {
@@ -150,16 +147,24 @@
         }
 
         let ecidade =document.getElementById("cidade");
-        if (ecidade.value==null || ecidade.value.length >=9){
+        if (ecidade.value==null || ecidade.value==""){
             passou = false;
             ecidade.classList.add("is-invalid");
         } else {
             ecidade.classList.remove("is-invalid");
         }
 
+        let egeo =document.getElementById("geolocalizacao");
+        let eend =document.getElementById("endereco");
+        if (egeo.value==null || egeo.value.length <=3){
+            passou = false;
+            eend.classList.add("is-invalid");
+        } else {
+            eend.classList.remove("is-invalid");
+        }
 
        if (!passou){
-      form.preventDefault();
+      e.preventDefault();
      }
 
     }
